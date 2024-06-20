@@ -1,7 +1,10 @@
+apt update
+apt upgrade -y
 wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_7.0-1+ubuntu24.04_all.deb
 dpkg -i zabbix-release_7.0-1+ubuntu24.04_all.deb
 apt update
 apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent -y
+apt install zabbix-server-mysql zabbix-agent zabbix-apache-conf zabbix-sql-scripts  zabbix-frontend-php -y
 pass_sql="123456"
 mysql -u root -p"$pass_sql" -e "create database zabbix character set utf8mb4 collate utf8mb4_bin;"
 mysql -u root -p"$pass_sql" -e "create user zabbix@localhost identified by '123456';"
